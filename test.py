@@ -1,6 +1,7 @@
 import RPi.GPIO as io
 import time
 from RestAPI import RestAPI
+
 io.setmode(io.BCM)
 io.setup(7,io.IN)
 
