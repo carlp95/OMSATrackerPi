@@ -4,6 +4,7 @@ import gps
 session = gps.gps("localhost", "2947")
 session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
+
 while True:
     try:
         report = session.next()
@@ -11,8 +12,13 @@ while True:
         # To see all report data, uncomment the line below
         # print report
         if report['class'] == 'TPV':
+<<<<<<< HEAD
             if hasattr(report, 'lon'):
                 print report.lon
+=======
+            if hasattr(report, 'lat'):
+                print report.lat
+>>>>>>> 20c6e4e85556d31305bc51a1479e56b43ab162e8
     except KeyError:
         pass
     except KeyboardInterrupt:
