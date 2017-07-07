@@ -11,8 +11,8 @@ while True:
         # To see all report data, uncomment the line below
         # print report
         if report['class'] == 'TPV':
-            if hasattr(report, 'latitude'):
-                print report.latitude
+            if hasattr(report, 'lon'):
+                print report.lon
     except KeyError:
         pass
     except KeyboardInterrupt:
