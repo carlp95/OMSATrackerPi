@@ -1,15 +1,23 @@
-from threading import Thread
-from time import sleep
+import threading
+import time
 
-def espera(n):
- sleep(n)
- print "Espero %s segundos." % n
+def espera():
+ a =0
+ while (a<=7):
 
+  time.sleep(5)
+  print "Primer Hilo."
+  a+=1
 
-subproceso = Thread(target=espera, args=(5,))
+def segundoHilo():
+ b=0
+ while(b<=7):
+  time.sleep(3)
+  print "Segundo Hilo"
+  b+=1
 
+subproceso = threading.Thread(name='espera', target=espera)
 subproceso.start()
 
-print "Yo espero menos."
-subproceso.join()
-print "Yo llego tarde."
+Hilo2= threading.Thread(name='segundoHilo', target=segundoHilo)
+Hilo2.start()
