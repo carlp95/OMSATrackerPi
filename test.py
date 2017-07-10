@@ -1,11 +1,10 @@
 import RPi.GPIO as io
 import time
-<<<<<<< HEAD
-####from RestAPI import RestAPI
-=======
-from RestAPI import RestAPI
 
->>>>>>> 20c6e4e85556d31305bc51a1479e56b43ab162e8
+####from RestAPI import RestAPI====
+#from RestAPI import RestAPI
+
+
 io.setmode(io.BCM)
 io.setup(7,io.IN)
 
