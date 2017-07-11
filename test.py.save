@@ -1,7 +1,6 @@
 import RPi.GPIO as io
 import time
-import GPS 
-from gps import *
+
 ####from RestAPI import RestAPI====
 #from RestAPI import RestAPI
 
@@ -18,21 +17,10 @@ while 1:
 		##restAPI.postUbicacion(2,3)
 		currentHour = time.localtime().tm_hour
 		print " detecto %d" %(man)
-		status = 1
-		##print "hora %d" %(currentHour)
-		gpsp = GPS.GpsPoller()
-		gpsp.start()
-		time.sleep(1)
-		print 'latitude',gpsp.fix.latitude
-                print "longitude",gpsp.fix.longitude
-		print 'time' , gpsp.fix.time	
-		
-		gpsp.stopController()
-		
-		#gpsp.start()
-	      #  print 'latitude',gpsp.current_value.fix.latitude
-		
-		
+	
+	##print "hora %d" %(currentHour)
+		status =1
+
 	elif io.input(7) ==0:
 		print "no dectetado"
 		status =0

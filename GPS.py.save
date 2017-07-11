@@ -1,0 +1,23 @@
+import gps
+import time
+
+session =gps.gps("localhost",2947)
+session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
+
+while True:
+    
+    try:
+	time.sleep(3)
+	report =session.next(10)
+
+	if report['class']== 'TPV':
+	    if hasattr(report, 'time'):
+		print report.time
+
+    except KeyError:
+		pass
+    except KeyboardInterrupt:
+		quit()
+    except StopInterration:
+		session =None
+		print "GPS has terminated"

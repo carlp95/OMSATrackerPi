@@ -22,7 +22,7 @@ while 1:
 		##print "hora %d" %(currentHour)
 		gpsp = GPS.GpsPoller()
 		gpsp.start()
-		time.sleep(1)
+	        
 		print 'latitude',gpsp.fix.latitude
                 print "longitude",gpsp.fix.longitude
 		print 'time' , gpsp.fix.time	
