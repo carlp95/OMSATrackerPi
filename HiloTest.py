@@ -20,6 +20,7 @@ session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
 
 
 def espera():
+
  a =0
  while (a<=7):
   try:

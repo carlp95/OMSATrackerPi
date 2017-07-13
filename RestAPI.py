@@ -7,3 +7,4 @@ class RestAPI:
     def postUbicacion(self, coordenada, hora ):
         response = unirest.post(self.url, headers={"Accept": "application/json"},
                                 params={"coordenada": coordenada, "hora": hora})
+
