@@ -2,9 +2,9 @@ class RaspberryPi:
     def __init__(self,_numeroSerial,_ipAddress,_macAddress, _puerto,_autobus ):
         self._numeroSerial = _numeroSerial
         self._ipAddress = _ipAddress
-        self._macAddress= _macAddress
-        self._puerto=_puerto
-        self._autobus=_autobus
+        self._macAddress = _macAddress
+        self._puerto = _puerto
+        self._autobus = _autobus
 
     def __init__(self):
         pass
@@ -12,7 +12,7 @@ class RaspberryPi:
         return self._puerto
 
     def __set__(self, instance, value):
-        self._puerto=value
+        self._puerto = value
 
     def __get__(self, instance, owner):
         return self._numeroSerial
@@ -25,6 +25,14 @@ class RaspberryPi:
 
     def __set__(self, instance, value):
         self._ipAddress = value
+
+    def __get__(self, instance, owner):
+        return self._autobus
+
+    def __set__(self, instance, value):
+        self._autobus = value
+
+
 p = RaspberryPi()
 
 p._numeroSerial=13

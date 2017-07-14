@@ -22,11 +22,18 @@ status =0
 
 def espera():
 
+<<<<<<< HEAD
  session = gps.gps("localhost", "2947")
  session.stream(gps.WATCH_ENABLE | gps.WATCH_NEWSTYLE)
   while (True):
  	 try:
   		 report = session.next()
+=======
+ a =0
+ while (a<=7):
+  try:
+   report = session.next()
+>>>>>>> 52fe1173962b9d4308a2bc65d81fc50d09ba95ea
    # Wait for a 'TPV' report and display the current time
    # To see all report data, uncomment the line below
    # print report
