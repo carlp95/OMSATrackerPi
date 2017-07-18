@@ -1,7 +1,6 @@
 import threading
-import time
-import gps
 
+import gps
 import RPi.GPIO as io
 import time
 ##from RestAPI import RestAPI

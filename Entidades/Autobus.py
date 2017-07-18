@@ -3,7 +3,7 @@ class Autobus:
         self._modelo=_modelo
         self._cantidadDeAsientos=_cantidadDeAsientos
         self._peso=_peso
-        self._raspberryPi=_raspberryPi
+        self._raspberryPiAPI=_raspberryPi
         self._ultimaParada=_ultimaParada
         self._ruta=_ruta
         self._anoFabicacion =_anoFabricacion
@@ -16,6 +16,8 @@ class Autobus:
         self._cantidadDePasajerosActual=_cantidadDePasajerosActual
         self._coordenada=_coordenada
 
+    def __init__(self):
+        pass
     def __get__(self, instance, owner):
         return self._modelo
     def __set__(self, instance, value):
@@ -32,9 +34,10 @@ class Autobus:
         self._peso=value
 
     def __get__(self, instance, owner):
-        return self._raspberryPi
+        return self._raspberryPiAPI
+
     def __set__(self, instance, value):
-        self._raspberryPi=value
+        self._raspberryPiAPI=value
 
     def __get__(self, instance, owner):
         return self._ultimaParada

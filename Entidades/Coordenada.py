@@ -1,4 +1,6 @@
 class Coordenada:
+    def __init__(self):
+        pass
     def __init__(self, longitud, latitud):
         self.longitud = longitud
         self.latitud = latitud

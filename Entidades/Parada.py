@@ -5,6 +5,8 @@ class Parada:
         self._paradaAnterior=_paradaAnterior
         self._paradaSiguiente= _paradaSiguiente
         self._coordenada = _coordenada
+    def __init__(self):
+        pass
     def __get__(self, instance, owner):
         return self._nombre
     def __set__(self, instance, value):

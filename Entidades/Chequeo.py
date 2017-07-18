@@ -2,9 +2,11 @@ class Chequeo:
     def __init__(self, _parada, _esEntrada, _raspberryPi, _fechaRegistrada):
         self._parada = _parada
         self._esEntrada = _esEntrada
-        self._raspberryPi= _raspberryPi
+        self._raspberryPiAPI = _raspberryPi
         self._fechaRegistrada=_fechaRegistrada
 
+    def __init__(self):
+        pass
     def __get__(self, instance, owner):
         return self._parada
 
@@ -18,10 +20,10 @@ class Chequeo:
         self._esEntrada = value
 
     def __get__(self, instance, owner):
-        return self._raspberryPi
+        return self._raspberryPiAPI
 
     def __set__(self, instance, value):
-        self._raspberryPi = value
+        self._raspberryPiAPI = value
 
     def __get__(self, instance, owner):
         return self._fechaRegistrada

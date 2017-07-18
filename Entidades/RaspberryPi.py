@@ -1,18 +1,12 @@
 class RaspberryPi:
-    def __init__(self,_numeroSerial,_ipAddress,_macAddress, _puerto,_autobus ):
+    def __init__(self,_numeroSerial,_ipAddress,_macAddress,_autobus ):
         self._numeroSerial = _numeroSerial
         self._ipAddress = _ipAddress
         self._macAddress = _macAddress
-        self._puerto = _puerto
         self._autobus = _autobus
 
     def __init__(self):
         pass
-    def __get__(self,instance, owner):
-        return self._puerto
-
-    def __set__(self, instance, value):
-        self._puerto = value
 
     def __get__(self, instance, owner):
         return self._numeroSerial
