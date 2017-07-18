@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0aea3d0-34c5-47f0-bc60-80a71caeca0f" name="Default" comment="posting data to the server">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sensor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/OMSATrackerPi.iml" afterPath="$PROJECT_DIR$/.idea/OMSATrackerPi.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Entidades/Autobus.py" afterPath="$PROJECT_DIR$/Entidades/Autobus.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Entidades/Chequeo.py" afterPath="$PROJECT_DIR$/Entidades/Chequeo.py" />
+    <list default="true" id="c0aea3d0-34c5-47f0-bc60-80a71caeca0f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Entidades/Coordenada.py" afterPath="$PROJECT_DIR$/Entidades/Coordenada.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Entidades/Parada.py" afterPath="$PROJECT_DIR$/Entidades/Parada.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Entidades/RaspberryPi.py" afterPath="$PROJECT_DIR$/Entidades/RaspberryPi.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GPS.py" afterPath="$PROJECT_DIR$/GPS.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/HiloTest.py" afterPath="$PROJECT_DIR$/HiloTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RestAPI.py" afterPath="$PROJECT_DIR$/RestAPI.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,8 +24,8 @@
       <file leaf-file-name="sensor.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sensor.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+            <state relative-caret-position="108">
+              <caret line="75" column="38" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -47,8 +36,18 @@
       <file leaf-file-name="Coordenada.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Entidades/Coordenada.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="54">
-              <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
+            <state relative-caret-position="306">
+              <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RaspberryPi.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Entidades/RaspberryPi.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="14" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -96,12 +95,12 @@
         <option value="$PROJECT_DIR$/HiloTest.py" />
         <option value="$PROJECT_DIR$/Entidades/RaspberryPi.py" />
         <option value="$PROJECT_DIR$/Entidades/Parada.py" />
-        <option value="$PROJECT_DIR$/Entidades/Coordenada.py" />
         <option value="$PROJECT_DIR$/GPS.py" />
         <option value="$PROJECT_DIR$/Entidades/Chequeo.py" />
         <option value="$PROJECT_DIR$/Entidades/Autobus.py" />
         <option value="$PROJECT_DIR$/RestAPI.py" />
         <option value="$PROJECT_DIR$/sensor.py" />
+        <option value="$PROJECT_DIR$/Entidades/Coordenada.py" />
       </list>
     </option>
   </component>
@@ -387,7 +386,14 @@
       <option name="project" value="LOCAL" />
       <updated>1499968521651</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="posting data to the server">
+      <created>1500387756762</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1500387756762</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -427,7 +433,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creado esqueleto del cliente" />
     <MESSAGE value="creando los objetos" />
-    <option name="LAST_COMMIT_MESSAGE" value="creando los objetos" />
+    <MESSAGE value="posting data to the server" />
+    <option name="LAST_COMMIT_MESSAGE" value="posting data to the server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -743,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Entidades/RaspberryPi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/GpsModulo.py.save">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -761,14 +761,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Entidades/Coordenada.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="3" column="42" selection-start-line="3" selection-start-column="42" selection-end-line="3" selection-end-column="42" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -788,10 +780,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Entidades/RaspberryPi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="3" selection-start-line="10" selection-start-column="3" selection-end-line="14" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Entidades/Coordenada.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sensor.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+        <state relative-caret-position="108">
+          <caret line="75" column="38" selection-start-line="75" selection-start-column="38" selection-end-line="75" selection-end-column="38" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
