@@ -9,14 +9,14 @@ io.setmode(io.BCM)
 io.setup(7, io.IN)
 io.setup(8, io.IN)
 
-
-def getMAC(interface):
-    # Return the MAC address of interface
-    try:
-        str = open('/sys/class/net/' + interface + '/address').read()
-    except:
-        str = "00:00:00:00:00:00"
-    return str[0:17]
+#
+# def getMAC(interface):
+#     # Return the MAC address of interface
+#     try:
+#         str = open('/sys/class/net/' + interface + '/address').read()
+#     except:
+#         str = "00:00:00:00:00:00"
+#     return str[0:17]
 
 
 # getting the serial number
@@ -36,25 +36,22 @@ def getserial():
 
 
 # getting the raspberrypi Ip
-def get_ip():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        # doesn't even have to be reachable
-        s.connect(('10.255.255.255', 1))
-        IP = s.getsockname()[0]
-    except:
-        IP = '127.0.0.1'
-    finally:
-        s.close()
-    return IP
+# def get_ip():
+#     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#     try:
+#         # doesn't even have to be reachable
+#         s.connect(('10.255.255.255', 1))
+#         IP = s.getsockname()[0]
+#     except:
+#         IP = '127.0.0.1'
+#     finally:
+#         s.close()
+#     return IP
 
-
-
-
-raspberry = RaspberryPi.RaspberryPi()
-raspberry._numeroSerial = getserial()
-raspberry._macAddress = getMAC("wlan0")
-raspberry._ipAddress = get_ip()
+# raspberry = RaspberryPi.RaspberryPi()
+# raspberry._numeroSerial = getserial()
+# raspberry._macAddress = getMAC("wlan0")
+# raspberry._ipAddress = get_ip()
 #raspberry._autobus = "to be used";
 
 #autobus = Autobus.Autobus()
@@ -73,10 +70,16 @@ estadoActual = True
 while 1:
     cont += 1
     if(cont==5):
-        coor = Coordenada.Coordenada()
-        coor.latitud = gpsc.fix.latitude
-        coor.longitud = gpsc.fix.longitude
-        restAPI.postEstadoActualAndRuta(getserial(), coor, estadoActual, int(time.time()))
+        try:
+            coor = Coordenada.Coordenada()
+            coor.latitud = gpsc.fix.latitude
+            coor.longitud = gpsc.fix.longitude
+            restAPI.postEstadoActualAndRuta(getserial(), coor, estadoActual, int(time.time()))
+            cont = 0
+        except:
+            cont = 0
+            pass
+
     if io.input(7) == 1:
         man += 1
         print " detecto una subida%d" % (man)
@@ -90,7 +93,7 @@ while 1:
 
         gpsd = GpsPoller()
         gpsd.start()
-        time.sleep(1)
+        # time.sleep(1)
 
         coordenada.latitud = gpsd.fix.latitude
         coordenada.longitud = gpsd.fix.longitude
@@ -116,7 +119,7 @@ while 1:
 
         gpsd = GpsPoller()
         gpsd.start()
-        time.sleep(1)
+        # time.sleep(1)
 
         coordenada.latitud = gpsd.fix.latitude
         coordenada.longitud = gpsd.fix.longitude
@@ -133,9 +136,10 @@ while 1:
         contadorDeNodeteccion += 1
         status = 0
     time.sleep(3)
+
     if(contadorDeNodeteccion==60):
         for chequeodetectado in chequeos:
-            restAPI.postChequeos(chequeodetectado)
+            restAPI.postChequeos(chequeodetectado, getserial())
         contadorDeNodeteccion=0
 
         #actualizando cantidad de pasajeros
