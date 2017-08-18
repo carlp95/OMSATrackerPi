@@ -1,4 +1,5 @@
 import RPi.GPIO as io
+import unirest
 import time
 import socket
 from RestAPI import RestAPI
@@ -53,11 +54,11 @@ def get_ip():
 
 raspberry = RaspberryPi.RaspberryPi()
 raspberry._numeroSerial = getserial()
-raspberry._macAddress = getMAC("wlan0")
+raspberry._macAddress = getMAC("eth0")
 raspberry._ipAddress = get_ip()
-#raspberry._autobus = "to be used";
+raspberry._autobus = "to be used";
 
-#autobus = Autobus.Autobus()
+autobus = Autobus.Autobus()
 
 # main variable
 man = 0
@@ -76,6 +77,10 @@ while 1:
         coor = Coordenada.Coordenada()
         coor.latitud = gpsc.fix.latitude
         coor.longitud = gpsc.fix.longitude
+
+	print "latitud %.6f" % gpsc.fix.latitude
+	print "longitud %.6f" % gpsc.fix.longitude
+	cont =0 
         restAPI.postEstadoActualAndRuta(getserial(), coor, estadoActual, int(time.time()))
     if io.input(7) == 1:
         man += 1

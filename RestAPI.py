@@ -2,7 +2,7 @@ import unirest
 from Entidades import Coordenada
 
 class RestAPI:
-    url = "http://httpbin.org/post"
+    url = "https://omsa.herokuapp.com"
     ACCEPT_TYPE = "application/json"
 
     def postUbicacion(self, serialNummber, coordenada, fechaRegistrada ):
