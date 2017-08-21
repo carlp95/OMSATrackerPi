@@ -55,7 +55,7 @@ def getserial():
 #raspberry._autobus = "to be used";
 
 #autobus = Autobus.Autobus()
-
+numeroSerial = getserial()
 # main variable
 man = 0
 status = 0
@@ -65,17 +65,32 @@ contadorDeNodeteccion = 0
 
 gpsc = GpsPoller()  # create the thread
 gpsc.start()  # start it up
+
 cont=0
 estadoActual = True
+verificadorDeEstado=0
+currentCoordenada= none
 while 1:
     cont += 1
+    verificadorDeEstado+=1
     if(cont==5):
         try:
             coor = Coordenada.Coordenada()
             coor.latitud = gpsc.fix.latitude
             coor.longitud = gpsc.fix.longitude
-            restAPI.postEstadoActualAndRuta(getserial(), coor, estadoActual, int(time.time()))
+            restAPI.postUbicacion(getserial(), coor, int(time.time()))
             cont = 0
+            if verificadorDeEstado== 5:
+                currentCoordenada = coor
+            if verificadorDeEstado==300:
+                if round(coor.latitud, 4)==round(currentCoordenada.latitud,4) or round(coor.longitud, 4)==round(currentCoordenada.longitud,4):
+                    estadoActual=False
+                    restAPI.postEstadoActualAndRuta(numeroSerial,coor,estadoActual,int(time.time()))
+                    verificadorDeEstado=0
+                else:
+                    estadoActual=True
+                    restAPI.postEstadoActualAndRuta(numeroSerial, coor, estadoActual, int(time.time()))
+                    verificadorDeEstado=0
         except:
             cont = 0
             pass
@@ -139,8 +154,8 @@ while 1:
 
     if(contadorDeNodeteccion==60):
         for chequeodetectado in chequeos:
-            restAPI.postChequeos(chequeodetectado, getserial())
+            restAPI.postChequeos(chequeodetectado, numeroSerial)
         contadorDeNodeteccion=0
 
         #actualizando cantidad de pasajeros
-        restAPI.postCantidadDePasajerosActual(int(time.time()), man, getserial())
+        restAPI.postCantidadDePasajerosActual(int(time.time()), man, numeroSerial())
