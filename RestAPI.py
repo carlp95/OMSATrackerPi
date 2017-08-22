@@ -6,9 +6,13 @@ class RestAPI:
     ACCEPT_TYPE = "application/json"
 
     def postUbicacion(self, serialNummber, coordenada, fechaRegistrada ):
-        unirest.post(self.url, headers={"Accept": self.ACCEPT_TYPE},
+	print(serialNummber)
+        response = unirest.post(self.url+"/api/autobus/modificar/posicion/", headers={"Accept": "application/json"},
                                 params={"numeroSerial": serialNummber, "latitud": coordenada.latitud,
                                         "longitud": coordenada.longitud,  "fecha": fechaRegistrada})
+        print (response.body)
+        print(response.code)
+
 
     def postChequeos(self, chequeo, numeroSerial):
         unirest.post(self.url+"/api/chequeo/guardar", headers={"Accept": self.ACCEPT_TYPE},

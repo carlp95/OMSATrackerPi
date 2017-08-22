@@ -37,7 +37,27 @@ def getserial():
 
 
 # getting the raspberrypi Ip
+#
+#def get_ip():
+#    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+#    try:
+#        # doesn't even have to be reachable
+#        s.connect(('10.255.255.255', 1))
+#        IP = s.getsockname()[0]
+#    except:
+#        IP = '127.0.0.1'
+#    finally:
+#        s.close()
+#    return IP
 
+
+
+
+#raspberry = RaspberryPi.RaspberryPi()
+#aspberry._numeroSerial = getserial()
+#raspberry._macAddress = getMAC("eth0")
+#raspberry._ipAddress = get_ip()
+#raspberry._autobus = "to be used";
 # def get_ip():
 #     s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 #     try:
@@ -70,29 +90,29 @@ gpsc = GpsPoller()  # create the thread
 gpsc.start()  # start it up
 cont=0
 estadoActual = True
-
-coor = Coordenada.Coordenada()
-coor.latitud = gpsc.fix.latitude
-coor.longitud = gpsc.fix.longitude
-restAPI.postUbicacion(getserial(), coor, int(time.time()))
-
-
-
-
-while false:
+while 1:
     cont += 1
     if(cont==5):
+
+        coor = Coordenada.Coordenada()
+        coor.latitud = gpsc.fix.latitude
+        coor.longitud = gpsc.fix.longitude
+
+	print "latitud %.6f" % gpsc.fix.latitude
+	print "longitud %.6f" % gpsc.fix.longitude
+	cont =0 
+        re
         try:
             coor = Coordenada.Coordenada()
             coor.latitud = gpsc.fix.latitude
             coor.longitud = gpsc.fix.longitude
-	    print(gpsc.fix.latitude)
-            restAPI.postUbicacion(getserial(), coor, int(time.time()))
+            restAPI.postEstadoActualAndRuta(getserial(), coor, estadoActual, int(time.time()))
             cont = 0
         except:
             cont = 0
             pass
 
+>>>>>>> 99ef4b8785dd0f3f75dc28fe1a01ca61961b1fc3
     if io.input(7) == 1:
         man += 1
         print " detecto una subida%d" % (man)
@@ -100,7 +120,7 @@ while false:
         # registrando un chequeo
         chequeo = Chequeo.Chequeo()
         chequeo._esEntrada = True
-
+        chequeo._raspberryPiAPI = raspberry
         chequeo._fechaRegistrada = int(time.time())
         coordenada = Coordenada.Coordenada()
 
@@ -126,7 +146,7 @@ while false:
         # registrando un chequeo
         chequeo = Chequeo.Chequeo()
         chequeo._esEntrada = True
-
+        chequeo._raspberryPi = raspberry
         chequeo._fechaRegistrada = int(time.time())
         coordenada = Coordenada.Coordenada()
 
