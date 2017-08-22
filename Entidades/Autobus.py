@@ -1,9 +1,9 @@
 class Autobus:
-    def __init__(self, _modelo,_cantidadDeAsientos, _raspberryPi,_peso,_ruta, _ultimaParada, _anoFabricacion,_activo, _conductor, _fechaCreada, _ultimaFechaModificada, _precio, _tieneAireAcondicionado,_cantidadDePasajerosActual, _coordenada):
+    def __init__(self, _modelo,_cantidadDeAsientos, _numeroSerial,_peso,_ruta, _ultimaParada, _anoFabricacion,_activo, _conductor, _fechaCreada, _ultimaFechaModificada, _precio, _tieneAireAcondicionado,_cantidadDePasajerosActual, _coordenada):
         self._modelo=_modelo
         self._cantidadDeAsientos=_cantidadDeAsientos
         self._peso=_peso
-        self._raspberryPiAPI=_raspberryPi
+        self._numeroSerial=_numeroSerial
         self._ultimaParada=_ultimaParada
         self._ruta=_ruta
         self._anoFabicacion =_anoFabricacion
