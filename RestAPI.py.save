@@ -7,8 +7,8 @@ class RestAPI:
     ACCEPT_TYPE = "application/json"
 
     def postUbicacion(self, serialNummber, coordenada, fechaRegistrada ):
-        try:
-	    response= requests.put("http://omsa.herokuapp.com/api/autobus/modificar/posicion/",headers={"content-type":'application/json;charset=utf-8',"Accept": "application/json"} ,
+       try:
+	     response= requests.put("http://omsa.herokuapp.com/api/autobus/modificar/posicion/",headers={"content-type":'application/json;charset=utf-8',"Accept": "application/json"} ,
                               json={
                                         "raspberryPiNumeroSerial": serialNummber,
                                         "coordenada":{
@@ -18,13 +18,11 @@ class RestAPI:
                                         "ultimaFechaModificada": fechaRegistrada
                                 }
                      )
-
-		
-	    print('posicion----->')
-	    print(response.status_code)
-	    print (response.json())
-	except: 
-	    pass
+	except:
+		pass
+	print('posicion----->')
+	print(response.status_code)
+	print (response.json())
 
     def postChequeos(self, chequeo ,numeroSerial):
         try:    
@@ -42,33 +40,25 @@ class RestAPI:
 						}
 					}
                                }
-                     )
-	    print('Coordenadas de chequeo -->',chequeo._parada.coordenada.longitud)
-	    print(chequeo._parada.coordenada.latitude)
-	    print(chequeo._esEntrada)
- 	    print(chequeo._fechaRegistrada)
-	    print('chequeos---->')
-	    print(response.status_code)
-	    print(response.json())
-	except:
-            pass
+        except:
+             )
+	print('chequeos---->')
+	print(response.status_code)
+	print(response.json())
+	
 
     def postCantidadDePasajerosActual(self, fecha, cantidadPasajeros, numeroSerial):
-        try:
-            response=requests.put(self.url+"/api/autobus/modificar/cantidadPasajeros", headers={'content-type':'application/json;charset=utf-8',"Accept": self.ACCEPT_TYPE},
+        response=requests.put(self.url+"/api/autobus/modificar/cantidadPasajeros", headers={'content-type':'application/json;charset=utf-8',"Accept": self.ACCEPT_TYPE},
                                 json={
                                         "raspberryPiNumeroSerial": numeroSerial,
                                         "cantidadDePasajerosActual": cantidadPasajeros,
                                         "ultimaFechaModificada": fecha
                                 }
                      )
-	    print('cantidad de pasajeros----->')
-	    print(response.status_code)
-        except:
-	    pass
+	print('cantidad de pasajeros----->')
+	print(response.status_code)
     def postEstadoActualAndRuta(self, numeroSerial, coordenada, estadoActual,fecha):
-        try:    
-            response=requests.put(self.url+"/api/autobus/modificar/estado", headers={'content-type':'application/json',"Accept":self.ACCEPT_TYPE},
+        response=requests.put(self.url+"/api/autobus/modificar/estado", headers={'content-type':'application/json',"Accept":self.ACCEPT_TYPE},
                              json={
                                     "activo": estadoActual,
                                     "ultimaFechaModificada": fecha,
@@ -79,7 +69,5 @@ class RestAPI:
                                     "raspberryPiNumeroSerial": numeroSerial
                              }
                      )
-	    print('estado----->')
-	    print( response.status_code)
-	except:
-            pass	
+	print('estado----->')
+	print( response.status_code)

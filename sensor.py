@@ -23,6 +23,7 @@ io.setup(8, io.IN)
 # getting the serial number
 def getserial():
     # Extract serial from cpuinfo file
+
     cpuserial = "0000000000000000"
     try:
         f = open('/proc/cpuinfo', 'r')
@@ -56,14 +57,10 @@ def getserial():
 # raspberry._ipAddress = get_ip()
 #raspberry._autobus = "to be used";
 
-<<<<<<< HEAD
 
-autobus = Autobus.Autobus()
-
-=======
 #autobus = Autobus.Autobus()
 numeroSerial = getserial()
->>>>>>> d841f9675e8adeb2ceaf98b9872f6907794f8454
+
 # main variable
 man = 0
 status = 0
@@ -76,39 +73,27 @@ gpsc.start()  # start it up
 
 cont=0
 estadoActual = True
-<<<<<<< HEAD
-
-coor = Coordenada.Coordenada()
-coor.latitud = gpsc.fix.latitude
-coor.longitud = gpsc.fix.longitude
-restAPI.postUbicacion(getserial(), coor, int(time.time()))
 
 
-
-
-while false:
-=======
 verificadorDeEstado=0
-currentCoordenada= none
+currentCoordenada= None
 while 1:
->>>>>>> d841f9675e8adeb2ceaf98b9872f6907794f8454
     cont += 1
     verificadorDeEstado+=1
     if(cont==5):
         try:
             coor = Coordenada.Coordenada()
-            coor.latitud = gpsc.fix.latitude
+            coor.latitude = gpsc.fix.latitude
             coor.longitud = gpsc.fix.longitude
-<<<<<<< HEAD
+
 	    print(gpsc.fix.latitude)
-=======
->>>>>>> d841f9675e8adeb2ceaf98b9872f6907794f8454
+
             restAPI.postUbicacion(getserial(), coor, int(time.time()))
             cont = 0
             if verificadorDeEstado== 5:
                 currentCoordenada = coor
             if verificadorDeEstado==300:
-                if round(coor.latitud, 4)==round(currentCoordenada.latitud,4) or round(coor.longitud, 4)==round(currentCoordenada.longitud,4):
+                if round(coor.latitude, 4)==round(currentCoordenada.latitude,4) or round(coor.longitud, 4)==round(currentCoordenada.longitud,4):
                     estadoActual=False
                     restAPI.postEstadoActualAndRuta(numeroSerial,coor,estadoActual,int(time.time()))
                     verificadorDeEstado=0
@@ -122,6 +107,8 @@ while 1:
 
     if io.input(7) == 1:
         man += 1
+	if man >100:
+	    man = 100
         print " detecto una subida%d" % (man)
 
         # registrando un chequeo
@@ -135,11 +122,11 @@ while 1:
         gpsd.start()
         # time.sleep(1)
 
-        coordenada.latitud = gpsd.fix.latitude
+        coordenada.latitude = gpsd.fix.latitude
         coordenada.longitud = gpsd.fix.longitude
         gpsd.stopController()
         parada = Parada.Parada()
-        parada._coordenada = coordenada
+        parada.coordenada = coordenada
         chequeo._parada = parada
         chequeos.append(chequeo)
 
@@ -161,12 +148,12 @@ while 1:
         gpsd.start()
         # time.sleep(1)
 
-        coordenada.latitud = gpsd.fix.latitude
+        coordenada.latitude = gpsd.fix.latitude
         coordenada.longitud = gpsd.fix.longitude
         gpsd.stopController()
 
         parada = Parada.Parada()
-        parada._coordenada = coordenada
+        parada.coordenada = coordenada
         chequeo._parada = parada
         chequeos.append(chequeo)
         status = 1
@@ -176,11 +163,12 @@ while 1:
         contadorDeNodeteccion += 1
         status = 0
     time.sleep(3)
-
-    if(contadorDeNodeteccion==60):
+    print (contadorDeNodeteccion)	
+    if(contadorDeNodeteccion==30):
         for chequeodetectado in chequeos:
             restAPI.postChequeos(chequeodetectado, numeroSerial)
         contadorDeNodeteccion=0
-
+	chequeos=[]
+	
         #actualizando cantidad de pasajeros
-        restAPI.postCantidadDePasajerosActual(int(time.time()), man, numeroSerial())
+        restAPI.postCantidadDePasajerosActual(int(time.time()), man, numeroSerial)

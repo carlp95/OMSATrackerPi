@@ -1,9 +1,9 @@
 class Coordenada:
 
 
-    def __init__(self, longitud, latitud):
+    def __init__(self, longitud, latitude):
         self.longitud = longitud
-        self.latitud = latitud
+        self.latitude = latitude
 
     def __init__(self):
         pass
@@ -15,10 +15,10 @@ class Coordenada:
         self.longitud= value
 
     def __get__(self, instance, owner):
-        return self.latitud
+        return self.latitude
 
     def __set__(self, instance, value):
-        self.latitud = value
+        self.latitude = value
 
     def __unicode__(self):
-        return self.latitud + "," + self.longitud
+        return self.latitude + "," + self.longitud

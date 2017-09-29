@@ -1,38 +1,38 @@
 class Parada:
-    def __init__(self,_nombre,_ruta,_paradaAnterior, _paradaSiguiente, _coordenada):
-        self._nombre= _nombre
-        self._ruta = _ruta
-        self._paradaAnterior=_paradaAnterior
-        self._paradaSiguiente= _paradaSiguiente
-        self._coordenada = _coordenada
+    def __init__(self,nombre,ruta,paradaAnterior, paradaSiguiente, coordenada):
+        self.nombre= nombre
+        self.ruta= ruta
+        self.paradaAnterior= paradaAnterior
+        self.paradaSiguiente= paradaSiguiente
+        self.coordenada=coordenada
     def __init__(self):
         pass
     def __get__(self, instance, owner):
-        return self._nombre
+        return self.nombre
     def __set__(self, instance, value):
-        self._nombre = value
+        self.nombre = value
 
     def __get__(self, instance, owner):
-        return self._ruta
+        return self.ruta
 
     def __set__(self, instance, value):
-        self._ruta = value
+        self.ruta = value
 
     def __get__(self, instance, owner):
-        return self._paradaAnterior
+        return self.paradaAnterior
 
     def __set__(self, instance, value):
-        self._paradaAnterior = value
+        self.paradaAnterior = value
 
     def __get__(self, instance, owner):
-        return self._paradaSiguiente
+        return self.paradaSiguiente
 
     def __set__(self, instance, value):
-        self._paradaSiguiente = value
+        self.paradaSiguiente = value
 
     def __get__(self, instance, owner):
-        return self._coordenada
+        return self.coordenada
 
     def __set__(self, instance, value):
-        self._coordenada = value
+        self.coordenada = value
 
