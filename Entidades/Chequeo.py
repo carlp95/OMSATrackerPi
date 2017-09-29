@@ -1,6 +1,6 @@
 class Chequeo:
-    def __init__(self, _parada, _esEntrada, _fechaRegistrada, _autobus):
-        self._parada = _parada
+    def __init__(self, parada, _esEntrada, _fechaRegistrada, _autobus):
+        self.parada = parada
         self._esEntrada = _esEntrada
         self._fechaRegistrada=_fechaRegistrada
         self._autobus = _autobus
@@ -15,10 +15,10 @@ class Chequeo:
         self._autobus = value
 
     def __get__(self, instance, owner):
-        return self._parada
+        return self.parada
 
     def __set__(self, instance, value):
-        self._parada = value
+        self.parada = value
 
     def __get__(self, instance, owner):
         return self._esEntrada
