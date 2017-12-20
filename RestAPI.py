@@ -4,12 +4,12 @@ import requests
 
 
 class RestAPI:
-    url = "https://omsa.herokuapp.com"
+    url = "https://gps-qjm.herokuapp.com"
     ACCEPT_TYPE = "application/json"
 
     def postUbicacion(self, serialNummber, coordenada, fechaRegistrada):
         try:
-            response = requests.put("http://omsa.herokuapp.com/api/autobus/modificar/posicion/",
+            response = requests.put("http://gps-qjm.herokuapp.com/api/autobus/modificar/posicion/",
                                     headers={"content-type": 'application/json;charset=utf-8',
                                              "Accept": "application/json"},
                                     json={
